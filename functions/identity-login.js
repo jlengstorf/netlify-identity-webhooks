@@ -1,5 +1,5 @@
-exports.handler = async ({ user }) => {
-  console.log(user);
+exports.handler = async (...args) => {
+  console.log(JSON.stringify(args));
 
   return {
     statusCode: 200,
