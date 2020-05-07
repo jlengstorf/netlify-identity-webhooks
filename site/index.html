@@ -13,5 +13,14 @@
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     ></script>
+
+    <script>
+      window.netlifyIdentity.on('init', (user) => {
+        console.log(user);
+      });
+      const user = window.netlifyIdentity.currentUser();
+
+      console.log({ user });
+    </script>
   </body>
 </html>
