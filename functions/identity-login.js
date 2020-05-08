@@ -10,7 +10,7 @@ exports.handler = async (event) => {
         stripe_data: {
           sub: true,
         },
-        roles: ['test', 'pro'],
+        roles: ['test'],
       },
     }),
   };
