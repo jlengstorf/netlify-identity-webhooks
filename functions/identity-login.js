@@ -1,5 +1,7 @@
-exports.handler = async (...args) => {
-  console.log(JSON.stringify(args));
+exports.handler = async (event) => {
+  console.log(event.body);
+
+  // TODO load Stripe subs data
 
   return {
     statusCode: 200,
