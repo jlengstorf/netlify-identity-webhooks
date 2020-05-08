@@ -30,6 +30,7 @@
             },
             body: JSON.stringify({
               userID: user.id,
+              role: 'client',
             }),
           })
             .then((res) => res.text())
