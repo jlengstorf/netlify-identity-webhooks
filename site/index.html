@@ -21,6 +21,7 @@
         console.log(user);
         const handleClick = async (event) => {
           event.preventDefault();
+          console.log(user.token.access_token);
 
           const response = await fetch('/.netlify/functions/role-test', {
             method: 'POST',
@@ -28,7 +29,7 @@
               Authorization: `Bearer ${user.token.access_token}`,
             },
           })
-            .then((res) => res.json())
+            .then((res) => res.text())
             .catch((err) => console.log(err));
 
           console.log(response);
