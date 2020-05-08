@@ -40,7 +40,7 @@
           console.log(
             window.netlifyIdentity
               .currentUser()
-              .jwt(force)
+              .jwt(true)
               .then((jwt) => console.log(jwt)),
           );
         };
