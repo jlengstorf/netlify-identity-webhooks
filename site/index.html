@@ -38,7 +38,10 @@
 
           console.log(response);
           console.log(
-            window.netlifyIdentity.refresh().then((jwt) => console.log(jwt)),
+            window.netlifyIdentity
+              .currentUser()
+              .jwt(force)
+              .then((jwt) => console.log(jwt)),
           );
         };
 
