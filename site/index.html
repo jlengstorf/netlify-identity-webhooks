@@ -37,6 +37,9 @@
             .catch((err) => console.log(err));
 
           console.log(response);
+          console.log(
+            window.netlifyIdentity.refresh().then((jwt) => console.log(jwt)),
+          );
         };
 
         document
