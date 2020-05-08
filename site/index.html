@@ -9,6 +9,8 @@
     <h1>Netlify Identity Is Neat</h1>
     <div data-netlify-identity-menu></div>
 
+    <button id="update-role">Update Role</button>
+
     <script
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
@@ -17,6 +19,24 @@
     <script>
       window.netlifyIdentity.on('init', (user) => {
         console.log(user);
+        const handleClick = async (event) => {
+          event.preventDefault();
+
+          const response = await fetch('/.netlify/functions/role-test', {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${user.token.access_token}`,
+            },
+          })
+            .then((res) => res.json())
+            .catch((err) => console.log(err));
+
+          console.log(response);
+        };
+
+        document
+          .querySelector('#update-role')
+          .addEventListener('click', handleClick);
       });
     </script>
   </body>

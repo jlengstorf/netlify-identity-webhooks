@@ -1,4 +1,4 @@
 [build]
   publish = "site"
   functions = "functions"
-  command = "# no build command"
+  command = "npm i --prefix=functions"
