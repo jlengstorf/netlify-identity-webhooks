@@ -2,9 +2,12 @@ const fetch = require('node-fetch');
 
 exports.handler = async (event, context) => {
   console.log(context);
+  const { userID } = JSON.parse(event.body);
   const { identity, user } = context.clientContext;
 
-  const response = await fetch(`${identity.url}/admin/users/${user.sub}`, {
+  console.log({ userID });
+
+  const response = await fetch(`${identity.url}/admin/users/${userID}`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${identity.token}`,
